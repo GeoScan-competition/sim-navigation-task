@@ -72,6 +72,8 @@ pip install -r requirements.txt
 
 [Ссылка на установщик]() 
 
+[Руководство по эксплуатации Geoscan Simulator](https://download.geoscan.ru/site-files/simulator/geoscan_simulator_manual.pdf)
+
 
 ## 🎮 Работа с Пионером и Геоботом
 
