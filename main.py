@@ -20,25 +20,25 @@ def camera_stream(camera: Camera):
     
 
 def pioneer_control(pioneer: Pioneer):
-    '''Управление Пионером'''
+    '''Пример управления Пионером'''
     pioneer.arm()
     time.sleep(1)
     pioneer.takeoff()
     pioneer.go_to_local_point(3, 0, 2, 0)
     time.sleep(3)
 
-    points = [[1, 0]]
+    points = [[0, 0], [1, 0], [1, 1], [0, 1]]
     height = 2
 
     while True:
         for point in points:
-            pioneer.go_to_local_point_body_fixed(*point, height, 0)
+            pioneer.go_to_local_point_body(*point, height, 0)
             while not pioneer.point_reached():
                 pass
             time.sleep(0.2)
 
 def geobot_control(geobot: EdubotGCS):
-    '''Управление Геоботом'''
+    '''Пример управления Геоботом'''
     points = [[0, 0], [1, 0], [1, 1], [0, 1]]
 
     while True:
