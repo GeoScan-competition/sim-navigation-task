@@ -97,7 +97,7 @@ pip install -r requirements.txt
 
 **Для работы камеры Пионера необходимо нажать кнопку "Захват видео".**
 
-Для работы с Пионером и его камерой используется библиотека [pioneer_sdk](https://docs.geoscan.ru/pioneer/programming/python/pioneer-sdk-methods.html "Документация pioneer_sdk"). Её установка включена в файл `requirements.txt` по умолчанию.`
+Для работы с Пионером и его камерой используется библиотека [pioneer_sdk](https://docs.geoscan.ru/pioneer/programming/python/pioneer-sdk-methods.html "Документация pioneer_sdk"). Её установка включена в файл `requirements.txt` по умолчанию.
 
 Для работы с Геоботом используется библиотека [edubot_sdk](edubot_sdk.py "Документация geobot_sdk"). Её реализация в файле [edubot_sdk.py]
 
