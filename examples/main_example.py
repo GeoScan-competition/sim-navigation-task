@@ -1,6 +1,6 @@
 from pioneer_sdk import Camera
 from pioneer_sdk import Pioneer
-from edubot_sdk import EdubotGCS
+from geobot_sdk import Geobot
 
 import time
 import cv2
@@ -27,7 +27,7 @@ def pioneer_control(pioneer: Pioneer):
     pioneer.go_to_local_point(3, 0, 2, 0)
     time.sleep(3)
 
-    points = [[0, 0], [1, 0], [1, 1], [0, 1]] #  Квадрат с длинной стороны 1
+    points = [[0, 0], [1, 0], [1, 1], [0, 1]]  #  Квадрат с длинной стороны 1
     height = 2
 
     while True:
@@ -38,9 +38,9 @@ def pioneer_control(pioneer: Pioneer):
             time.sleep(0.2)
 
 
-def geobot_control(geobot: EdubotGCS):
+def geobot_control(geobot: Geobot):
     """Пример управления Геоботом"""
-    points = [[0, 0], [1, 0], [1, 1], [0, 1]] # Квадрат с длинной стороны 1
+    points = [[0, 0], [1, 0], [1, 1], [0, 1]]  # Квадрат с длинной стороны 1
 
     while True:
         for point in points:
@@ -60,7 +60,7 @@ def main():
 
     pioneer = Pioneer(ip="127.0.0.1", mavlink_port=int(args[0]))
     pioneer_camera = Camera(ip="127.0.0.1", port=int(args[1]))
-    geobot = EdubotGCS(ip="127.0.0.1", mavlink_port=int(args[2]))
+    geobot = Geobot(ip="127.0.0.1", mavlink_port=int(args[2]))
 
     camera_thread = threading.Thread(target=camera_stream, args=(pioneer_camera,))
     pioneer_thread = threading.Thread(target=pioneer_control, args=(pioneer,))

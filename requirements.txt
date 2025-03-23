@@ -6,3 +6,4 @@ opencv-python==4.11.0.86
 pioneer-sdk==0.5.3
 pymavlink==2.4.37
 pyserial==3.5
+geobot-sdk @ git+https://github.com/GeoScan-competition/geobot_sdk.git

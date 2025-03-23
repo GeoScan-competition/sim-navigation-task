@@ -5,9 +5,8 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-from edubot_sdk import EdubotGCS
+from geobot_sdk import Geobot
 import cv2
-import numpy as np
 import time
 
 if __name__ == "__main__":
@@ -17,7 +16,7 @@ if __name__ == "__main__":
     ←a      d→
         s↓"""
     )
-    geobot = EdubotGCS(ip="127.0.0.1", mavlink_port=8001)
+    geobot = Geobot(ip="127.0.0.1", mavlink_port=8001)
     min_v = 1300
     max_v = 1700
     try:
@@ -35,7 +34,7 @@ if __name__ == "__main__":
                 print("esc pressed")
                 cv2.destroyAllWindows()
                 break
- 
+
             elif key == ord("w"):
                 ch_3 = max_v
             elif key == ord("s"):
@@ -44,7 +43,6 @@ if __name__ == "__main__":
                 ch_4 = min_v
             elif key == ord("d"):
                 ch_4 = max_v
- 
 
             geobot._rc_channels_send(
                 channel_1=ch_1,

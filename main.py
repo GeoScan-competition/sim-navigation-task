@@ -1,5 +1,5 @@
 from pioneer_sdk import Pioneer, Camera
-from edubot_sdk import EdubotGCS
+from geobot_sdk import Geobot
 
 import cv2
 import sys
@@ -15,7 +15,7 @@ def main():
 
     pioneer = Pioneer(ip="127.0.0.1", mavlink_port=int(args[0]))
     pioneer_camera = Camera(ip="127.0.0.1", port=int(args[1]))
-    geobot = EdubotGCS(ip="127.0.0.1", mavlink_port=int(args[2]))
+    geobot = Geobot(ip="127.0.0.1", mavlink_port=int(args[2]))
 
 
 if __name__ == "__main__":
