@@ -17,8 +17,16 @@ if __name__ == "__main__":
         s↓"""
     )
     geobot = Geobot(ip="127.0.0.1", mavlink_port=8001)
-    min_v = 1300
-    max_v = 1700
+
+    geobot.go_to_local_point_body_fixed(1, 0)
+    time.sleep(5)
+    geobot.go_to_local_point_body_fixed(1, 0)
+    time.sleep(5)
+
+    min_v = 1000
+    max_v = 2000
+    min_v_yaw = 1250
+    max_v_yaw = 1750
     try:
         while True:
             ch_1 = 1500
@@ -40,9 +48,9 @@ if __name__ == "__main__":
             elif key == ord("s"):
                 ch_3 = min_v
             elif key == ord("a"):
-                ch_4 = min_v
+                ch_4 = min_v_yaw
             elif key == ord("d"):
-                ch_4 = max_v
+                ch_4 = max_v_yaw
 
             geobot._rc_channels_send(
                 channel_1=ch_1,
@@ -51,7 +59,9 @@ if __name__ == "__main__":
                 channel_4=ch_4,
                 channel_5=ch_5,
             )
-            time.sleep(0.02)
+
+            print(ch_1, ch_2, ch_3, ch_4)
+            time.sleep(0.01)
     finally:
         time.sleep(1)
         del geobot
